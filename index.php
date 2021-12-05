@@ -11,6 +11,7 @@ define("ENTITY_ALBUM", "album");
 define("ENTITY_CUSTOMER", "customer");
 define("ENTITY_MEDIATYPE", "mediatype");
 define("ENTITY_GENRE", "genre");
+define("ENTITY_INVOICE", "invoice");
 
 $url = strtok($_SERVER["REQUEST_URI"], "?");
 if (substr($url, strlen($url) - 1) == "/") {
@@ -232,6 +233,15 @@ switch ($entity) {
         switch ($req) {
             case "GET":
                 echo json_encode($genre->getGenre());
+        }
+        break;
+    case ENTITY_INVOICE:
+        require_once("src/invoice.php");
+        $invoice = new Invoice();
+        $req = $_SERVER["REQUEST_METHOD"];
+        switch ($req) {
+            case "POST":
+                echo json_encode($invoice->createInvoice($_POST));
         }
         break;
 }
