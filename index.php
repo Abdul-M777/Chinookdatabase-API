@@ -34,7 +34,7 @@ switch ($entity) {
         switch ($req) {
             case "GET":
                 if (isset($_GET["name"])) {
-                    echo json_encode($artist->getArtistName($_GET["name"]));
+                    echo json_encode($artist->getArtistName($_GET["name"], $_GET["p"]));
                 } else if (isset($_GET["id"])) {
                     echo json_encode($artist->getArtistId($_GET["id"]));
                 } else {
@@ -65,7 +65,7 @@ switch ($entity) {
         switch ($req) {
             case "GET":
                 if (isset($_GET['name'])) {
-                    echo json_encode($album->getAlbumName($_GET['name']));
+                    echo json_encode($album->getAlbumName($_GET['name'], $_GET['p']));
                 } else if (isset($_GET['id'])) {
                     echo json_encode($album->getAlbumId($_GET['id']));
                 } else {
@@ -94,7 +94,7 @@ switch ($entity) {
         switch ($req) {
             case "GET":
                 if (isset($_GET["name"])) {
-                    echo json_encode(($track->getTrackName($_GET["name"])));
+                    echo json_encode(($track->getTrackName($_GET["name"], $_GET['p'])));
                 } else if (isset($_GET["id"])) {
                     echo json_encode(($track->getTrackId($_GET["id"])));
                 } else {

@@ -56,10 +56,13 @@ class Album
         return $row;
     }
 
-    function getAlbumName($name)
+    function getAlbumName($name, $p)
     {
+
+        $page = ($p - 1) * 100;
+
         $sql = "SELECT artist.name, album.title, album.albumId, artist.artistId FROM album
-	LEFT JOIN artist ON album.ArtistId = artist.ArtistID WHERE album.title Like '%" . $name . "%'";
+	LEFT JOIN artist ON album.ArtistId = artist.ArtistID WHERE album.title Like '%" . $name . "%' LIMIT 100 OFFSET $page";
         $results = dbQuery($sql);
         $rows = array();
 

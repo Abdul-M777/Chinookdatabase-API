@@ -62,13 +62,16 @@ class Track
         return $row;
     }
 
-    function getTrackName($name)
+    function getTrackName($name, $p)
     {
+
+        $page = ($p - 1) * 100;
+
         $sql = "SELECT track.name AS trackName, album.title AS albumTitle, genre.name AS genre, mediatype.name AS mediatype , track.unitPrice, track.trackId, track.composer, track.milliseconds, track.bytes
 	FROM track
 	LEFT JOIN album ON album.albumid=track.albumid
 	LEFT JOIN genre ON genre.genreid=track.genreid
-    LEFT JOIN mediatype ON mediatype.mediatypeid=track.mediatypeid WHERE track.name Like '%" . $name . "%'";
+    LEFT JOIN mediatype ON mediatype.mediatypeid=track.mediatypeid WHERE track.name Like '%" . $name . "%' LIMIT 100 OFFSET $page";
         $results = dbQuery($sql);
         $rows = array();
 

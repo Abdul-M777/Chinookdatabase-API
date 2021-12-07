@@ -57,9 +57,12 @@ class Artist
     }
 
     //} else if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['name'])) {
-    function getArtistName($name)
+    function getArtistName($name, $p)
     {
-        $sql = "SELECT * FROM artist WHERE Name Like '%" . $name . "%'";
+        $page = ($p - 1) * 100;
+
+
+        $sql = "SELECT * FROM artist WHERE Name Like '%" . $name . "%' LIMIT 100 OFFSET $page";
         $results = dbQuery($sql);
         $rows = array();
 
@@ -72,7 +75,10 @@ class Artist
     //} else {
     function getArtist()
     {
-        $sql = 'SELECT * FROM artist';
+
+
+
+        $sql = "SELECT * FROM artist";
         $results = dbQuery($sql);
         $rows = array();
 
