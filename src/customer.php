@@ -23,6 +23,18 @@ class Customer
 
         global $dbConn;
 
+        $firstName = htmlspecialchars($firstName, ENT_QUOTES);
+        $lastName = htmlspecialchars($lastName, ENT_QUOTES);
+        $company = htmlspecialchars($company, ENT_QUOTES);
+        $address = htmlspecialchars($address, ENT_QUOTES);
+        $city = htmlspecialchars($city, ENT_QUOTES);
+        $state = htmlspecialchars($state, ENT_QUOTES);
+        $country = htmlspecialchars($country, ENT_QUOTES);
+        $email = htmlspecialchars($email, ENT_QUOTES);
+
+
+
+
         //check if password and password repeat is the same
         if ($password == $password_repeat) {
 
@@ -108,6 +120,15 @@ class Customer
         $email,
         $id
     ) {
+
+        $firstName = htmlspecialchars($firstName, ENT_QUOTES);
+        $lastName = htmlspecialchars($lastName, ENT_QUOTES);
+        $company = htmlspecialchars($company, ENT_QUOTES);
+        $address = htmlspecialchars($address, ENT_QUOTES);
+        $city = htmlspecialchars($city, ENT_QUOTES);
+        $state = htmlspecialchars($state, ENT_QUOTES);
+        $country = htmlspecialchars($country, ENT_QUOTES);
+        $email = htmlspecialchars($email, ENT_QUOTES);
 
         global $dbConn;
 

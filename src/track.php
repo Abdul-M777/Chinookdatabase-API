@@ -12,6 +12,12 @@ class Track
         // get posted data
         $minute = $milliseconds * 60000;
 
+        $name = htmlspecialchars($name, ENT_QUOTES);
+        $composer = htmlspecialchars($composer, ENT_QUOTES);
+
+
+
+
 
         $sql = 'INSERT INTO track(Name, AlbumId, MediaTypeId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)
     VALUES(?,?,?,?,?,?,?,?)';
@@ -37,6 +43,8 @@ class Track
     {
         global $dbConn;
         $minute = $milliseconds * 60000;
+        $name = htmlspecialchars($name, ENT_QUOTES);
+        $composer = htmlspecialchars($composer, ENT_QUOTES);
 
 
         $sql = 'UPDATE track SET Name = ?, Composer = ?, Milliseconds = ? , UnitPrice = ?, MediaTypeId = ?, GenreId = ?,

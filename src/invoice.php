@@ -32,9 +32,18 @@ class Invoice
                 // print_r($data['invoiceLines']);
                 // echo 'Hello' . gettype(json_decode($data['invoiceLines']));
 
-                $arr = json_decode($data['invoiceLines'], true);
+                if (gettype($data['invoiceLines']) == 'string') {
 
-                print_r($arr);
+                    $arr = json_decode($data['invoiceLines'], true);
+                } else {
+                    $arr = $data['invoiceLines'];
+                }
+
+
+                // print_r($data['invoiceLines']);
+
+                // print_r($arr);
+                // print_r($data['invoiceLines']);
 
                 foreach ($arr as $value) {
 

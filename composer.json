@@ -1,0 +1,20 @@
+{
+    "name": "slmns/chin-api",
+    "description": "Unit test for chinook website",
+    "type": "project",
+    "license": "GPL 3",
+    "autoload": {
+        "psr-4": {
+            "Slmns\\ChinApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abdulmuaz Alshaikhli",
+            "email": "abdu0445@edu.easj.dk"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "8"
+    }
+}

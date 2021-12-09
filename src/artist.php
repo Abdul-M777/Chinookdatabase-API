@@ -8,6 +8,9 @@ class Artist
     function createArtist($name)
     {
         global $dbConn;
+
+        $name = htmlspecialchars($name, ENT_QUOTES);
+
         $sql = 'INSERT INTO artist(Name) VALUES(?)';
         // dbQuery($sql);
         $stmt = mysqli_stmt_init($dbConn);
@@ -33,6 +36,8 @@ class Artist
         global $dbConn;
         // get posted data
 
+        $name = htmlspecialchars($name, ENT_QUOTES);
+
         $sql = 'UPDATE artist SET Name = ? WHERE ArtistId = ' . $id;
         // dbQuery($sql);
         $stmt = mysqli_stmt_init($dbConn);
@@ -44,7 +49,6 @@ class Artist
             return array('status' => 'Artist Updated');
         }
     }
-    //} else if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     function getArtistId($id)
     {
         global $dbConn;
@@ -56,7 +60,6 @@ class Artist
         return $row;
     }
 
-    //} else if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['name'])) {
     function getArtistName($name, $p)
     {
         $page = ($p - 1) * 100;
@@ -72,7 +75,6 @@ class Artist
         return $rows;
     }
 
-    //} else {
     function getArtist()
     {
 

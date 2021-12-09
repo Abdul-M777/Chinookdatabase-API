@@ -214,6 +214,7 @@ switch ($entity) {
                 echo json_encode($customer->deleteCustomer($_GET["id"]));
                 break;
         }
+        break;
 
     case ENTITY_MEDIATYPE:
         require_once("src/mediatype.php");

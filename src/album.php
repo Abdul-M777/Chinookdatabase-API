@@ -9,6 +9,9 @@ class Album
     {
         global $dbConn;
 
+        $name = htmlspecialchars($name, ENT_QUOTES);
+
+
         $sql = 'INSERT INTO album(Title, ArtistId) VALUES(?,?)';
         // dbQuery($sql);
         $stmt = mysqli_stmt_init($dbConn);
@@ -31,6 +34,8 @@ class Album
     function updateAlbum($name, $id)
     {
         global $dbConn;
+
+        $name = htmlspecialchars($name, ENT_QUOTES);
 
 
         $sql = 'UPDATE album SET Title = ? WHERE AlbumId = ' . $id;
