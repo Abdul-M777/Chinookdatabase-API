@@ -17,7 +17,12 @@ $url = strtok($_SERVER["REQUEST_URI"], "?");
 if (substr($url, strlen($url) - 1) == "/") {
     $url = substr($url, 0, strlen($url) - 1);
 }
+
+$url = substr($url, strpos($url, basename(__DIR__)));
+
 $urlPieces = explode("/", urldecode($url));
+
+
 
 
 $entity = $urlPieces[ENTITY];
